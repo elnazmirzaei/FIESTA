@@ -6,7 +6,7 @@
 ``` {r}
 library(devtools)
 install_github("elnazmirzaei/FIESTA")
-library(Fiesta)
+library(FIESTA)
 library(NMF)
 library(mixtools)
 library(fitdistrplus)
