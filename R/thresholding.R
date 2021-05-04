@@ -29,7 +29,7 @@ thresholding <- function(Raw,Imputed){
     }
 
 
-    #Vectorized for
+   #Vectorized for
     fitRec <- function(l = 0.1){
 
         if(l>=1){
@@ -48,7 +48,12 @@ thresholding <- function(Raw,Imputed){
         tryCatch(fit1 <- normalmixEM2comp(x,lambda=.5,sigsqrd=1,mu=c(0,1)), error=function(e) fit1 <- fitRec(0.1))
 
             if(is.list(fit1)){ 
-                round((fit1$lambda[1]*pnorm(0, fit1$mu[1], fit1$sigma) + (fit1$lambda[2])*pnorm(0, fit1$mu[2], fit1$sigma))*length(x))
+                Mini = 1
+                if (fit1$mu[1] > fit1$mu[2]){
+                    Mini = 2
+                }
+
+                round((fit1$lambda[Mini]*pnorm(0, fit1$mu[Mini], fit1$sigma))*length(x))
             } 
             else{
                 0
@@ -83,8 +88,11 @@ thresholding <- function(Raw,Imputed){
     }
 
     B = apply(rbind(CM,A),2,thresholds)
+    B = as.matrix(B)
+    Imputed = as.matrix(Imputed)
 
     Imputed[which(Imputed < B)] = 0
+
 
     print("Percentage of zero values in the Imputed data after Thresholding")
     print(length(which(Imputed==0))/(dim(Raw)[1]*dim(Raw)[2]))

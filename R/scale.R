@@ -14,11 +14,10 @@ scale <- function(Raw,Imputed){
     Scaled = Imputed
     for( i in c(1:dim(Imputed)[1])){
         if(length(which(Imputed[i,]!=0))>0){
-        Scaled[i,] = (Imputed[i,]*mean(quantile(Raw[i,which(Raw[i,]!=0)], c(.9,.95))))/mean(quantile(Imputed[i,][which(Imputed[i,]!=0)], c(.9,.95)))
+        Scaled[i,] = (Imputed[i,]*mean(quantile(Raw[i,which(Raw[i,]!=0)], c(.9,.95))))/mean(as.numeric(quantile(Imputed[i,which(Imputed[i,]!=0)], c(.9,.95))))
         }
     }
     return(Scaled)
 
 
 }
-

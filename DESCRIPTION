@@ -1,16 +1,15 @@
-Package: Fiesta
-Type: Package
-Version: 1.1.2
-Title:  Factor based estimation Single-Cell RNA-Seq Gene Expression Recovery
-Authors@R: c(
+Package: FIESTA
+Title: Factorization-based Inferred Expression Single-cell Transcriptomic Analysis (FIESTA)
+Version: 1.1.3
+Authors@R: 
     person(given = "Elnaz",
            family = "Mirzaei Mehrabad",
            role = c("aut", "cre"),
            email = "e.mirzaei.m@gmail.com"),
            person(given = "Benjamin", family = "Spike", email = "benjamin.spike@hci.utah.edu", 
-        role = "aut"))
-Description: What the package does (one paragraph).
-License: What license it uses
+        role = c("aut", "cre")))
+Description: A non-negative matrix factorization approach to impute missing values in single-cell RNAseq data sets.
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.0.1)
@@ -18,8 +17,10 @@ Imports:
     NMF,
     fitdistrplus,
     mixtools
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+
