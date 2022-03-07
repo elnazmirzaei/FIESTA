@@ -1,6 +1,6 @@
 Package: FIESTA
 Title: Factorization-based Inferred Expression Single-cell Transcriptomic Analysis (FIESTA)
-Version: 1.1.3
+Version: 1.1.4
 Authors@R: c(
     person(given = "Elnaz",
            family = "Mirzaei Mehrabad",

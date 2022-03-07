@@ -1,4 +1,4 @@
-#' thresholding Function
+#' Mix Normal thresholding Function
 #'
 #' The main goal of this function is to apply a thresholding step to avoid over imputation  
 #' @param Raw data matrix UnImputed gene expression data, which represent gene expressions for each cell/sample. rows = genes and cols= cells. 
